@@ -36,7 +36,7 @@ function signup() {
 
     // Optionally, redirect to the home page or show a success message
     alert('Sign up successful!');
-    window.location.href = 'home.html'; // Redirect to the home page
+    window.location.href = 'index.html'; // Redirect to the home page
 }
 
 

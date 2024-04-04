@@ -266,10 +266,10 @@ function downloadCode() {
 
 let currentuser = localStorage.getItem('users')
 if (!currentuser) {
-    window.location.href = "./home.html";
+    window.location.href = "./index.html";
 
 }
 let btn = document.getElementById('logoutButton').addEventListener('click', () => {
     localStorage.removeItem("users");
-    window.location.href = "./home.html";
+    window.location.href = "./index.html";
 })
