@@ -113,9 +113,20 @@
           height: 250px;
           border: 2px solid black;
         }
-        #animatedImgs {
-          height: 200px;
-          width: 500px;
+        #makeResume {
+          font-size: 28px;
+        }
+        #makeResumePtag {
+          font-size: 16px;
+        }
+        #stayConnect {
+          margin-left: 16px;
+        }
+        #pdfDwnldalltags {
+          padding-top: 10px;
+        }
+        #pdfWithImages {
+          margin-bottom: 10px;
         }
       }
       /* cell number */
@@ -123,34 +134,36 @@
   </head>
   <body>
     <header>
-      <nav class="w-full flex justify-between p-4">
+      <nav class="w-full flex justify-between p-4" id="navbar">
         <a href="index.html"
           ><img src="./Images/resumebuild.svg" alt="" class="h-10 ml-2"
         /></a>
 
-        <div class="flex gap-5 mr-5" id="navHeadings">
+        <div class="flex gap-5" id="navHeadings">
           <div id="anchorTags" class="flex gap-5">
             <a href="./index.html" class="font-normal text-xl pt-2">Home</a>
             <a href="" class="font-normal text-xl pt-2">Resume</a>
             <a href="" class="font-normal text-xl pt-2">Blog</a>
             <a href="" class="font-normal text-xl pt-2">|</a>
           </div>
-          <button
-            type="button"
-            class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            Sign Up
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg"
-            data-toggle="modal"
-            data-target="#loginModal"
-          >
-            Login
-          </button>
+          <div id="buttonsHover">
+            <button
+              type="button"
+              class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Sign Up
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg"
+              data-toggle="modal"
+              data-target="#loginModal"
+            >
+              Login
+            </button>
+          </div>
         </div>
         <!-- <svg
           id="hamburger"
@@ -241,8 +254,10 @@
     <!-- Make a Resume Online Section -->
     <section class="mt-20" id="makeResume">
       <div class="text-center mt-10">
-        <h1 class="font-bold text-4xl">Make a Resume Online – Quick & Easy</h1>
-        <p class="font-medium text-lg p-4">
+        <h1 class="font-bold text-4xl" id="makeResume">
+          Make a Resume Online - Quick & Easy
+        </h1>
+        <p class="font-medium text-lg p-4" id="makeResumePtag">
           CakeResume provides a variety of professional templates and formats.
           Build a simple yet unique resume in no time.
         </p>
@@ -283,12 +298,12 @@
     <!-- Down Footer Section -->
     <section id="pdfWithImages" class="flex justify-center mt-32 mb-20">
       <div id="pdfDwnld">
-        <img src="./Images/pdf-dwnld.avif" alt="" class="" />
+        <img src="./Images/pdf-dwnld.avif" alt="" class="" id="pdfDwnldImg" />
       </div>
-      <div class="p-20">
+      <div class="p-20" id="pdfDwnldalltags">
         <img src="./Images/pdf-icon.svg" alt="" />
         <p class="font-bold text-2xl pt-3">Download for Free</p>
-        <p class="pt-3 w-96">
+        <p class="pt-3">
           Download or print your resume PDF for free. Share it online with
           links.
         </p>
@@ -588,7 +603,7 @@
         </div>
       </div>
 
-      <div class="mt-5">
+      <div class="mt-5" id="stayConnect">
         <ul class="styles-module--footer-item--f32f6">
           <li class="mb-4 styles-module--footer-header--2f243">
             <h2 class="text-white font-bold text-2xl">Stay Connected</h2>
