@@ -89,7 +89,33 @@
         }
         #icons {
           display: flex;
+          justify-content: start;
+          gap: 15px;
+        }
+        #pdfWithImages {
+          display: flex;
           flex-direction: column;
+        }
+        #hwToCrt {
+          display: flex;
+          flex-direction: column;
+          margin-left: 30%;
+        }
+        #hwToCrtPtag {
+          font-size: 16px;
+        }
+        #mainFooter {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .carousel-cell {
+          height: 250px;
+          border: 2px solid black;
+        }
+        #animatedImgs {
+          height: 200px;
+          width: 500px;
         }
       }
       /* cell number */
@@ -172,24 +198,30 @@
       <h1 class="text-center font-bold text-4xl text-black p-10">
         How to Create a Resume?
       </h1>
-      <div class="flex justify-around">
+      <div id="hwToCrt" class="flex justify-around">
         <div>
           <img src="./Images/choose-template-icon.png" alt="" class="h-24" />
-          <p class="font-bold text-2xl pt-3">
+          <p id="hwToCrtPtag" class="font-bold text-2xl pt-3">
             Click on Create my Resume button
           </p>
         </div>
         <div>
           <img src="./Images/design-formatting-icon.png" alt="" class="h-24" />
-          <p class="font-bold text-2xl pt-3">Fill all you details</p>
+          <p id="hwToCrtPtag" class="font-bold text-2xl pt-3">
+            Fill all you details
+          </p>
         </div>
         <div>
           <img src="./Images/customize-icon.png" alt="" class="h-24" />
-          <p class="font-bold text-2xl pt-3">Print Your Resume</p>
+          <p id="hwToCrtPtag" class="font-bold text-2xl pt-3">
+            Print Your Resume
+          </p>
         </div>
         <div>
           <img src="./Images/download-template-icon.png" alt="" class="h-24" />
-          <p class="font-bold text-2xl pt-3">Click to download in Pdf format</p>
+          <p id="hwToCrtPtag" class="font-bold text-2xl pt-3">
+            Click to download in Pdf format
+          </p>
         </div>
       </div>
       <div class="flex justify-center p-5">
@@ -228,28 +260,28 @@
         data-flickity='{ "freeScroll": true, "wrapAround": true, "autoPlay" : true, "pauseAutoPlayOnHover" : false }'
       >
         <div class="carousel-cell border-2 border-black p-3 ml-3">
-          <img src="./Images/resume1.png" alt="" />
+          <img src="./Images/resume1.png" alt="" id="animatedImgs" />
         </div>
         <div class="carousel-cell border-2 border-black p-3 ml-3">
-          <img src="./Images/resume2.png" alt="" />
+          <img src="./Images/resume2.png" alt="" id="animatedImgs" />
         </div>
         <div class="carousel-cell border-2 border-black p-3 ml-3">
-          <img src="./Images/resume3.png" alt="" />
+          <img src="./Images/resume3.png" alt="" id="animatedImgs" />
         </div>
         <div class="carousel-cell border-2 border-black p-3 ml-3">
-          <img src="./Images/resume4.png" alt="" />
+          <img src="./Images/resume4.png" alt="" id="animatedImgs" />
         </div>
         <div class="carousel-cell border-2 border-black p-3 ml-3">
-          <img src="./Images/resume5.png" alt="" />
+          <img src="./Images/resume5.png" alt="" id="animatedImgs" />
         </div>
         <div class="carousel-cell border-2 border-black p-3 ml-3">
-          <img src="./Images/resume6.png" alt="" />
+          <img src="./Images/resume6.png" alt="" id="animatedImgs" />
         </div>
       </div>
     </section>
 
     <!-- Down Footer Section -->
-    <section class="flex justify-center mt-32 mb-20">
+    <section id="pdfWithImages" class="flex justify-center mt-32 mb-20">
       <div id="pdfDwnld">
         <img src="./Images/pdf-dwnld.avif" alt="" class="" />
       </div>
@@ -436,7 +468,7 @@
 
     <!-- Footer Section -->
 
-    <footer class="bg-gray-600 p-3 flex justify-around">
+    <footer id="mainFooter" class="bg-gray-600 p-3 flex justify-around">
       <div class="w-52 mt-5">
         <img src="./Images/resumebuild.svg" alt="" class="h-14 m-2" />
       </div>

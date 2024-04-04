@@ -254,22 +254,13 @@ function downloadCode() {
     // setTimeout(function () { window.location = window.location; }, 3000);
 }
 
-// document.getElementById('logoutButton').addEventListener('click', logout);
-// function logout() {
-//     // Clear local storage data related to the logged-in user
-//     localStorage.removeItem('users');
+document.getElementById('logoutButton').addEventListener('click', logout);
+function logout() {
+    // Clear local storage data related to the logged-in user
+    localStorage.removeItem('users');
 
-//     alert('You have been logged out.');
-//     // Optionally, redirect to the home page or perform any other action
-//     // window.location.href = 'home.html'; // Redirect to the home page
-// }
-
-let currentuser = localStorage.getItem('users')
-if (!currentuser) {
-    window.location.href = "./index.html";
-
+    alert('You have been logged out.');
+    // Optionally, redirect to the home page or perform any other action
+    window.location.href = 'index.html'; // Redirect to the home page
 }
-let btn = document.getElementById('logoutButton').addEventListener('click', () => {
-    localStorage.removeItem("users");
-    window.location.href = "./index.html";
-})
+
