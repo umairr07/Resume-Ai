@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        position: relative;
+      }
+      header > nav {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-bottom: 1px solid black;
+        box-shadow: 10px 10px 20px #888888;
+      }
+      #main-section {
+        height: 500px;
+        background-image: url(./Images/original-bg.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* margin-top: 0.5%; */
+      }
+      .carousel {
+        /* background: #fafafa; */
+      }
+
+      .carousel-cell {
+        width: 20%;
+        height: 400px;
+        margin-right: 10px;
+        /* background: #8c8; */
+        border-radius: 5px;
+        counter-increment: carousel-cell;
+        margin-top: 50px;
+      }
+      .carousel-cell > img {
+        width: 100%;
+      }
+
+      #pdfDwnld > img {
+        height: 500px;
+        width: 600px;
+      }
+
+      #buttonsHover {
+        color: white;
+      }
+      #buttonsHover:hover {
+        background-color: #3bd774;
+        color: black;
+        text-decoration: none;
+        box-shadow: 10px 10px 20px #888888;
+      }
+      #navbarSupportedContent {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 15px;
+      }
+
+      @media screen and (max-width: 768px) {
+        #hamburger {
+          display: block;
+        }
+
+        #anchorTags {
+          display: none;
+        }
+        #icons {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      /* cell number */
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="w-full flex justify-between p-4">
+        <a href="home.html"
+          ><img src="./Images/resumebuild.svg" alt="" class="h-10 ml-2"
+        /></a>
+
+        <div class="flex gap-5 mr-5" id="navHeadings">
+          <div id="anchorTags" class="flex gap-5">
+            <a href="./home.html" class="font-normal text-xl pt-2">Home</a>
+            <a href="" class="font-normal text-xl pt-2">Resume</a>
+            <a href="" class="font-normal text-xl pt-2">Blog</a>
+            <a href="" class="font-normal text-xl pt-2">|</a>
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Sign Up
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg"
+            data-toggle="modal"
+            data-target="#loginModal"
+          >
+            Login
+          </button>
+        </div>
+        <!-- <svg
+          id="hamburger"
+          class="size-10 hidden"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z"
+            fill="#000000"
+          />
+        </svg> -->
+      </nav>
+    </header>
+
+    <!-- Headding Section  -->
+    <section class="" id="main-section">
+      <div class="text-center p-4">
+        <h1 class="font-bold text-4xl mt-20">
+          The Resume to Land Your Dream Job
+        </h1>
+        <p class="font-medium text-lg p-5">
+          Create an impressive resume in minutes. Free to download.
+        </p>
+        <div class="mt-5">
+          <button
+            value="createResume"
+            id="buttonsHover"
+            href="resume.html"
+            class="bg-green-500 p-3"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Create My Resume Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Create Resume Section -->
+    <section class="mt-14">
+      <h1 class="text-center font-bold text-4xl text-black p-10">
+        How to Create a Resume?
+      </h1>
+      <div class="flex justify-around">
+        <div>
+          <img src="./Images/choose-template-icon.png" alt="" class="h-24" />
+          <p class="font-bold text-2xl pt-3">
+            Click on Create my Resume button
+          </p>
+        </div>
+        <div>
+          <img src="./Images/design-formatting-icon.png" alt="" class="h-24" />
+          <p class="font-bold text-2xl pt-3">Fill all you details</p>
+        </div>
+        <div>
+          <img src="./Images/customize-icon.png" alt="" class="h-24" />
+          <p class="font-bold text-2xl pt-3">Print Your Resume</p>
+        </div>
+        <div>
+          <img src="./Images/download-template-icon.png" alt="" class="h-24" />
+          <p class="font-bold text-2xl pt-3">Click to download in Pdf format</p>
+        </div>
+      </div>
+      <div class="flex justify-center p-5">
+        <button
+          value="createResume"
+          id="buttonsHover"
+          href="resume.html"
+          class="bg-green-500 p-3"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Create My Resume Now
+        </button>
+      </div>
+    </section>
+
+    <!-- Make a Resume Online Section -->
+    <section class="mt-20" id="makeResume">
+      <div class="text-center mt-10">
+        <h1 class="font-bold text-4xl">Make a Resume Online – Quick & Easy</h1>
+        <p class="font-medium text-lg p-4">
+          CakeResume provides a variety of professional templates and formats.
+          Build a simple yet unique resume in no time.
+        </p>
+        <!-- <button class="bg-green-500 p-3 text-white">
+          Create My Resume Now
+        </button> -->
+      </div>
+    </section>
+
+    <!-- Up Footer Section -->
+    <section id="upFooter" class="gap-10">
+      <div
+        style="animation: transition 1s"
+        class="carousel"
+        data-flickity='{ "freeScroll": true, "wrapAround": true, "autoPlay" : true, "pauseAutoPlayOnHover" : false }'
+      >
+        <div class="carousel-cell border-2 border-black p-3 ml-3">
+          <img src="./Images/resume1.png" alt="" />
+        </div>
+        <div class="carousel-cell border-2 border-black p-3 ml-3">
+          <img src="./Images/resume2.png" alt="" />
+        </div>
+        <div class="carousel-cell border-2 border-black p-3 ml-3">
+          <img src="./Images/resume3.png" alt="" />
+        </div>
+        <div class="carousel-cell border-2 border-black p-3 ml-3">
+          <img src="./Images/resume4.png" alt="" />
+        </div>
+        <div class="carousel-cell border-2 border-black p-3 ml-3">
+          <img src="./Images/resume5.png" alt="" />
+        </div>
+        <div class="carousel-cell border-2 border-black p-3 ml-3">
+          <img src="./Images/resume6.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Down Footer Section -->
+    <section class="flex justify-center mt-32 mb-20">
+      <div id="pdfDwnld">
+        <img src="./Images/pdf-dwnld.avif" alt="" class="" />
+      </div>
+      <div class="p-20">
+        <img src="./Images/pdf-icon.svg" alt="" />
+        <p class="font-bold text-2xl pt-3">Download for Free</p>
+        <p class="pt-3 w-96">
+          Download or print your resume PDF for free. Share it online with
+          links.
+        </p>
+        <div class="pt-7">
+          <button
+            value="createResume"
+            id="buttonsHover"
+            href="resume.html"
+            class="bg-green-500 p-3"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Create My Resume Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup Button -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title text-center font-bold text-2xl"
+              id="exampleModalLabel"
+            >
+              Sign Up
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="email" class="font-bold">Enter your email :</label>
+            <input
+              class="p-2 border-gray-200 border-2 w-full"
+              type="email"
+              name=""
+              id="signupEmail"
+              placeholder="e.g. johndoe@gmail.com"
+            />
+          </div>
+          <div class="modal-body">
+            <label for="password" class="font-bold">Enter password :</label>
+            <input
+              class="p-2 border-gray-200 border-2 w-full"
+              type="password"
+              name=""
+              id="signupPassword"
+              placeholder="********"
+            />
+          </div>
+          <div class="modal-footer flex justify-center">
+            <!-- <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="signUpBtn"
+              onclick="signup()"
+            >
+              Create an Account
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <p>
+              Already have an account?
+              <button
+                value="login"
+                data-toggle="modal"
+                data-target="#loginModal"
+              >
+                Login
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Button -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title text-center font-bold text-2xl"
+              id="exampleModalLabel"
+            >
+              Login
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="email" class="font-bold">Enter your email :</label>
+            <input
+              class="p-2 border-gray-200 border-2 w-full"
+              type="email"
+              name=""
+              id="loginEmail"
+              placeholder="e.g. johndoe@gmail.com"
+            />
+          </div>
+          <div class="modal-body">
+            <label for="password" class="font-bold">Enter password :</label>
+            <input
+              class="p-2 border-gray-200 border-2 w-full"
+              type="password"
+              name=""
+              id="loginPassword"
+              placeholder="********"
+            />
+          </div>
+          <div class="modal-footer flex justify-center">
+            <!-- <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button> -->
+            <button
+              type="button"
+              class="btn btn-primary w-2/5"
+              onclick="logIn()"
+            >
+              Login
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <p>
+              Don't have an account?
+              <button
+                value="signup"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Signup
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+
+    <footer class="bg-gray-600 p-3 flex justify-around">
+      <div class="w-52 mt-5">
+        <img src="./Images/resumebuild.svg" alt="" class="h-14 m-2" />
+      </div>
+
+      <div class="mt-5">
+        <h2 class="text-white font-bold text-2xl ml-3">Job Seekers</h2>
+        <div role="list" class="text-white mt-3">
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/resume/builder"
+              aria-label="build a resume page, List, 4 items, 1 of 4"
+              >Build a Resume</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/sample"
+              aria-label="look over samples, List, 4 items, 2 of 4"
+              >Samples</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/coverletter"
+              aria-label="look over cover letter samples, List, 4 items, 3 of 4"
+              >Cover Letter Samples</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/resume-app"
+              aria-label="go to download apps page, List, 4 items, 4 of 4"
+              >Apps</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h2 class="text-white font-bold text-2xl ml-3">Resources</h2>
+        <div role="list" class="text-white mt-3">
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/career-advice"
+              aria-label="go to the career advice, List, 6 items, 1 of 6"
+              >Career Advice</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/career-advice/resumes"
+              aria-label="read more about resumes in career advice, List, 6 items, 2 of 6"
+              >Resumes</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/career-advice/career-development"
+              aria-label="read more about career development in career advice, List, 6 items, 3 of 6"
+              >Career Development</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/career-advice/getting-a-job"
+              aria-label="read more about getting a job in career advice, List, 6 items, 4 of 6"
+              >Getting a Job</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/career-advice/cover-letters"
+              aria-label="read more about cover letters in career advice, List, 6 items, 5 of 6"
+              >Cover Letters</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              href="/career-advice/interviewing"
+              aria-label="read more about interviewing in career advice, List, 6 items, 6 of 6"
+              >Interviewing</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h2 class="text-white font-bold text-2xl ml-3">Need Help?</h2>
+        <div role="list" class="text-white mt-3">
+          <div role="listitem" class="col-md-12">
+            <a
+              target="_blank"
+              href="https://support.resume.com/"
+              rel="noopener noreferrer"
+              aria-label="go to the help center (opens in a new window), List, 3 items, 1 of 3"
+              >Help Center</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              target="_self"
+              href="/about"
+              rel=""
+              aria-label="read more about us, List, 3 items, 2 of 3"
+              >About Us</a
+            >
+          </div>
+          <div role="listitem" class="col-md-12">
+            <a
+              target="_self"
+              href="/sitemap"
+              rel=""
+              aria-label="go to the sitemap page, List, 3 items, 3 of 3"
+              >Sitemap</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <ul class="styles-module--footer-item--f32f6">
+          <li class="mb-4 styles-module--footer-header--2f243">
+            <h2 class="text-white font-bold text-2xl">Stay Connected</h2>
+          </li>
+          <div id="icons" class="flex mt-3 justify-around">
+            <svg
+              class="h-8"
+              xmlns="http://www.w3.org/2000/svg"
+              data-name="Layer 1"
+              viewBox="0 0 128 128"
+              id="linkedin"
+            >
+              <rect
+                width="128"
+                height="128"
+                fill="#0177b5"
+                rx="24"
+                ry="24"
+              ></rect>
+              <path
+                fill="#fff"
+                d="M92 32H36a4 4 0 0 0-4 4v56a4 4 0 0 0 4 4h56a4 4 0 0 0 4-4V36a4 4 0 0 0-4-4ZM52 86H42V56h10Zm-5-34a6 6 0 1 1 6-6 6 6 0 0 1-6 6Zm39 34H76V66c0-1.66-2.24-3-5-3-4 0-5 5.34-5 7v16H56V56h10v7c0-5 4.48-7 10-7a10 10 0 0 1 10 10Z"
+              ></path>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              id="instagram"
+              class="h-8"
+            >
+              <linearGradient
+                id="a"
+                x1="1.464"
+                x2="14.536"
+                y1="14.536"
+                y2="1.464"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" stop-color="#FFC107"></stop>
+                <stop offset=".507" stop-color="#F44336"></stop>
+                <stop offset=".99" stop-color="#9C27B0"></stop>
+              </linearGradient>
+              <path
+                fill="url(#a)"
+                d="M11 0H5a5 5 0 0 0-5 5v6a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zm3.5 11c0 1.93-1.57 3.5-3.5 3.5H5c-1.93 0-3.5-1.57-3.5-3.5V5c0-1.93 1.57-3.5 3.5-3.5h6c1.93 0 3.5 1.57 3.5 3.5v6z"
+              ></path>
+              <linearGradient
+                id="b"
+                x1="5.172"
+                x2="10.828"
+                y1="10.828"
+                y2="5.172"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" stop-color="#FFC107"></stop>
+                <stop offset=".507" stop-color="#F44336"></stop>
+                <stop offset=".99" stop-color="#9C27B0"></stop>
+              </linearGradient>
+              <path
+                fill="url(#b)"
+                d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5A2.503 2.503 0 0 1 5.5 8c0-1.379 1.122-2.5 2.5-2.5s2.5 1.121 2.5 2.5c0 1.378-1.122 2.5-2.5 2.5z"
+              ></path>
+              <linearGradient
+                id="c"
+                x1="11.923"
+                x2="12.677"
+                y1="4.077"
+                y2="3.323"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" stop-color="#FFC107"></stop>
+                <stop offset=".507" stop-color="#F44336"></stop>
+                <stop offset=".99" stop-color="#9C27B0"></stop>
+              </linearGradient>
+              <circle cx="12.3" cy="3.7" r=".533" fill="url(#c)"></circle>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="2500"
+              viewBox="126.445 2.281 589 589"
+              id="facebook"
+              class="h-8"
+            >
+              <circle
+                cx="420.945"
+                cy="296.781"
+                r="294.5"
+                fill="#3c5a9a"
+              ></circle>
+              <path
+                fill="#fff"
+                d="M516.704 92.677h-65.239c-38.715 0-81.777 16.283-81.777 72.402.189 19.554 0 38.281 0 59.357H324.9v71.271h46.174v205.177h84.847V294.353h56.002l5.067-70.117h-62.531s.14-31.191 0-40.249c0-22.177 23.076-20.907 24.464-20.907 10.981 0 32.332.032 37.813 0V92.677h-.032z"
+              ></path>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              id="twitter"
+              class="h-8"
+            >
+              <path
+                fill="#03A9F4"
+                d="M16 3.539a6.839 6.839 0 0 1-1.89.518 3.262 3.262 0 0 0 1.443-1.813 6.555 6.555 0 0 1-2.08.794 3.28 3.28 0 0 0-5.674 2.243c0 .26.022.51.076.748a9.284 9.284 0 0 1-6.761-3.431 3.285 3.285 0 0 0 1.008 4.384A3.24 3.24 0 0 1 .64 6.578v.036a3.295 3.295 0 0 0 2.628 3.223 3.274 3.274 0 0 1-.86.108 2.9 2.9 0 0 1-.621-.056 3.311 3.311 0 0 0 3.065 2.285 6.59 6.59 0 0 1-4.067 1.399c-.269 0-.527-.012-.785-.045A9.234 9.234 0 0 0 5.032 15c6.036 0 9.336-5 9.336-9.334 0-.145-.005-.285-.012-.424A6.544 6.544 0 0 0 16 3.539z"
+              ></path>
+            </svg>
+          </div>
+        </ul>
+      </div>
+    </footer>
+    <div class="bg-gray-600">
+      <p class="text-white font-medium text-center pt-5 pb-5 text-2xl">
+        Copyright © Developed by Umair
+      </p>
+    </div>
+
+    <script src="home.js"></script>
+
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

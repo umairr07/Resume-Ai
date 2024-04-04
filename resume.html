@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      nav {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-bottom: 1px solid black;
+        box-shadow: 2px 2px 10px #888888;
+      }
+      #forImg {
+        border-radius: 50%;
+        height: 220px;
+        width: 300px;
+      }
+      #jobsearch {
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+      .center {
+        /* height: 50vh;
+        width: 50vw; */
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background: white; */
+        /* background: #86efac; */
+      }
+      .wave {
+        width: 5px;
+        height: 100px;
+        background: linear-gradient(45deg, rgb(0, 0, 0), #42c41e);
+        margin: 10px;
+        animation: wave 1s linear infinite;
+        border-radius: 20px;
+      }
+      .wave:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .wave:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .wave:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .wave:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .wave:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      .wave:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      .wave:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+      .wave:nth-child(9) {
+        animation-delay: 0.8s;
+      }
+      .wave:nth-child(10) {
+        animation-delay: 0.9s;
+      }
+
+      @keyframes wave {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <nav
+        class="w-full flex justify-between border-solid border-black pl-10 shadow-slate-500 p-5"
+      >
+        <a href="home.html"
+          ><img src="./Images/resumebuild.svg" alt="" class="h-10 ml"
+        /></a>
+        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+        <!-- <svg
+          class="size-10 mt-3"
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z"
+            fill="#000000"
+          />
+        </svg> -->
+        <button
+          id="logoutButton"
+          type="button"
+          class="btn btn-primary bg-green-500 p-2 font-normal rounded-lg text-white"
+          data-toggle="modal"
+          data-target="#loginModal"
+        >
+          Log Out
+        </button>
+      </nav>
+    </div>
+
+    <div id="container" class="w-full flex">
+      <!-- Resume Builder left section -->
+      <div id="left" class="h-100 w-2/4">
+        <!-- About Section -->
+        <div class="p-10">
+          <h1 class="font-bold bg-green-500 w-full p-2 text-white">
+            ABOUT SECTION
+          </h1>
+          <div class="border-2 border-black mt-5 p-4">
+            <div class="flex">
+              <div>
+                <label for="fname" class="font-bold">
+                  First Name
+                  <input
+                    type="text"
+                    name=""
+                    id="firstName"
+                    placeholder="e.g Lucas"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="mname" class="font-bold"
+                  >Middle Name
+                  <input
+                    type="text"
+                    name=""
+                    id="mName"
+                    placeholder="e.g Bennett"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="lname" class="font-bold"
+                  >Last Name
+                  <input
+                    type="text"
+                    name=""
+                    id="lName"
+                    placeholder="e.g Johnston"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="flex mt-4">
+              <div>
+                <label for="image" class="font-bold"
+                  >Your Image
+                  <br />
+                  <input
+                    type="file"
+                    name=""
+                    id="imageId"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div class="ml-5">
+                <label for="" class="font-bold"
+                  >Designation
+                  <input
+                    type="text"
+                    name=""
+                    id="designation"
+                    placeholder="e.g Frontend Developer"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="" class="font-bold"
+                  >Address
+                  <input
+                    type="address"
+                    name=""
+                    id="addrress"
+                    placeholder="e.g 123 Main Street, Anytown, USA"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="flex mt-4">
+              <div>
+                <label for="image" class="font-bold"
+                  >Email
+                  <br />
+                  <input
+                    type="email"
+                    name=""
+                    id="email"
+                    placeholder="e.g johndoe123@example.com"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div class="ml-5">
+                <label for="" class="font-bold"
+                  >Phone No
+                  <input
+                    type="number"
+                    name=""
+                    id="number"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="" class="font-bold"
+                  >Summary
+                  <input
+                    type="text"
+                    name=""
+                    id="summary"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="p-10">
+          <h1 class="font-bold bg-green-500 w-full p-2 text-white">
+            ACHIEVEMENTS
+          </h1>
+          <div class="border-2 border-black mt-5 p-4">
+            <div class="flex gap-10">
+              <div>
+                <label for="title" class="font-bold">
+                  Title <br />
+                  <input
+                    type="text"
+                    name=""
+                    id="title"
+                    placeholder="e.g. harry@gmail.com"
+                    class="border-2 border-black font-normal p-1 w-80"
+                  />
+                </label>
+              </div>
+
+              <div>
+                <label for="title" class="font-bold">
+                  Description <br />
+                  <input
+                    type="text"
+                    name=""
+                    id="description"
+                    placeholder="e.g. harry@gmail.com"
+                    class="border-2 border-black font-normal p-1 w-72"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="p-10">
+          <h1 class="font-bold bg-green-500 w-full p-2 text-white">
+            EXPERIENCE
+          </h1>
+          <div class="border-2 border-black mt-5 p-4">
+            <div class="flex gap-8">
+              <div>
+                <label for="title" class="font-bold">
+                  Title
+                  <input
+                    type="text"
+                    name=""
+                    id="expTitle"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="cmp" class="font-bold"
+                  >Company/Organisation
+                  <input
+                    type="text"
+                    name=""
+                    id="expCompany"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="Location" class="font-bold"
+                  >Location
+                  <input
+                    type="text"
+                    name=""
+                    id="expLocation"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="flex mt-4 gap-8">
+              <div>
+                <label for="image" class="font-bold"
+                  >Start Date
+                  <br />
+                  <input
+                    type="date"
+                    name=""
+                    id="expDate"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="image" class="font-bold"
+                  >End Date
+                  <br />
+                  <input
+                    type="date"
+                    name=""
+                    id="endDate"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="title" class="font-bold">
+                  Description <br />
+                  <input
+                    type="text"
+                    name=""
+                    id="expDescription"
+                    class="border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="p-10">
+          <h1 class="font-bold bg-green-500 w-full p-2 text-white">
+            EDUCATION
+          </h1>
+          <div class="border-2 border-black mt-5 p-4">
+            <div class="flex gap-8">
+              <div>
+                <label for="title" class="font-bold">
+                  School
+                  <input
+                    type="text"
+                    name=""
+                    id="school"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="cmp" class="font-bold"
+                  >Degree
+                  <input
+                    type="text"
+                    name=""
+                    id="degree"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+
+              <div>
+                <label for="Location" class="font-bold"
+                  >City
+                  <input
+                    type="text"
+                    name=""
+                    id="city"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="flex mt-4 gap-8">
+              <div>
+                <label for="image" class="font-bold"
+                  >Start Date
+                  <br />
+                  <input
+                    type="date"
+                    name=""
+                    id="sDate"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="image" class="font-bold"
+                  >End Date
+                  <br />
+                  <input
+                    type="date"
+                    name=""
+                    id="eDate"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="title" class="font-bold">
+                  Description <br />
+                  <input
+                    type="text"
+                    name=""
+                    id="description1"
+                    class="border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="p-10">
+          <h1 class="font-bold bg-green-500 w-full p-2 text-white">PROJECTS</h1>
+          <div class="border-2 border-black mt-5 p-4">
+            <div class="flex gap-8">
+              <div>
+                <label for="title" class="font-bold">
+                  Project Name
+                  <input
+                    type="text"
+                    name=""
+                    id="projectName1"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="cmp" class="font-bold"
+                  >Project Link
+                  <input
+                    type="text"
+                    name=""
+                    id="projectLink1"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="Location" class="font-bold"
+                  >Description
+                  <input
+                    type="text"
+                    name=""
+                    id="projectDescription1"
+                    class="w-48 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="p-10" id="skillContainer">
+          <h1 class="font-bold bg-green-500 w-full p-2 text-white">SKILLS</h1>
+          <div class="border-2 border-black mt-5 p-4">
+            <div class="flex gap-8">
+              <div>
+                <label for="title" class="font-bold">
+                  Skills <br />
+                  <input
+                    type="text"
+                    name=""
+                    id="skill"
+                    class="w-96 border-2 border-black font-normal p-1"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- <button
+            class="bg-blue-500 p-1 w-12 text-xl rounded-lg mt-2 text-white font-bold"
+            id="createNewSkill"
+            onclick="createNewSkill()"
+          >
+            +
+          </button> -->
+        </div>
+      </div>
+
+      <!-- Right Section -->
+      <div
+        id="preview-sc"
+        class="w-2/4 h-screen flex border-black border-2 mt-10"
+      >
+        <!-- Inner Left Section -->
+        <div
+          id="innerLeft"
+          class="leftBg bg-green-300 w-2/5 text-left font-bold flex flex-col gap-10 p-10"
+        >
+          <img src="" alt="" id="forImg" class="h-60" />
+          <div class="font-medium">
+            <p id="fullName" class="text-black text-xl pb-5"></p>
+            <h1 class="font-bold text-2xl">ABOUT</h1>
+            <hr class="border-1 border-black mt-2" />
+            <p id="userDesignation"></p>
+            <p id="userEmail"></p>
+            <p id="userAddress"></p>
+            <p id="userPhone"></p>
+            <p id="userSummary"></p>
+          </div>
+
+          <div>
+            <h1 class="font-bold text-2xl">SKILLS</h1>
+            <hr class="border-1 border-black mt-2" />
+            <p id="userSkills" class="font-normal"></p>
+          </div>
+        </div>
+
+        <!-- Inner Right Section -->
+        <div
+          id="innerRight"
+          class="w-2/3 mt-5 text-left font-normal flex flex-col gap-10 p-10"
+        >
+          <div class="text-black">
+            <h1 class="font-bold">ACHIEVEMENTS</h1>
+            <hr class="border-1 border-black mt-2" />
+            <p id="userTitle"></p>
+            <p id="userDescription"></p>
+          </div>
+
+          <div>
+            <h1 class="font-bold">EXPERIENCE</h1>
+            <hr class="border-1 border-black mt-2" />
+            <p id="userExpTitle"></p>
+            <p id="userExpCompany"></p>
+            <p id="userExpLocation"></p>
+            <p id="userExpDate"></p>
+            <p id="userEndDate"></p>
+            <p id="userExpDescription"></p>
+          </div>
+
+          <div>
+            <h1 class="font-bold">EDUCATION</h1>
+            <hr class="border-1 border-black mt-2" />
+            <p id="userSchool"></p>
+            <p id="userDegree"></p>
+            <p id="userCity"></p>
+            <p id="userStartDate"></p>
+            <p id="eduEndDate"></p>
+            <p id="userDescription1"></p>
+          </div>
+
+          <div>
+            <h1 class="font-bold">PROJECTS</h1>
+            <hr class="border-1 border-black mt-2" />
+            <p id="userProjectName"></p>
+            <p id="userProjectLink"></p>
+            <p id="userProjectDescription"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-2 p-5 flex gap-10 justify-center mb-10">
+      <a href=""
+        ><button
+          id="printCv"
+          class="bg-blue-500 p-3 rounded-lg text-white hover:bg-white hover:text-black hover:border-2 hover:border-black"
+          onclick="printDiv('preview-sc')"
+        >
+          Print CV
+        </button></a
+      >
+      <button
+        onclick="downloadCode()"
+        class="bg-blue-500 p-3 rounded-lg text-white hover:bg-white hover:text-black hover:border-2 hover:border-black"
+      >
+        Download PDF
+      </button>
+
+      <button
+        id="jobsSuggestions"
+        class="bg-blue-500 p-3 rounded-lg text-white hover:bg-white hover:text-black hover:border-2 hover:border-black"
+      >
+        Jobs Suggestions
+      </button>
+
+      <button
+        id="projectsSuggestions"
+        class="bg-blue-500 p-3 rounded-lg text-white hover:bg-white hover:text-black hover:border-2 hover:border-black"
+      >
+        Projects
+      </button>
+    </div>
+
+    <!-- wave animation -->
+
+    <!-- gemini clone -->
+    <div
+      id="jobsearch"
+      class="bg-gradient-to-r from-green-400 to-white shadow-md m-auto p-5 w-2/3 hidden"
+    >
+      <!-- <img
+        src="./Images/job-no-experience.png"
+        alt=""
+        class="h-40 m-auto p-2 w-72"
+      /> -->
+      <!-- <p class="hidden text-2xl font-bold text-center" id="pJob">
+        ------ Job Suggestions ------
+      </p> -->
+      <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+    </div>
+
+    <!-- job suggestions -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+      // let apikey = "";
+      const API_KEY = "AIzaSyC--DbD0AVc9CfmBdEvr1djMXL_60k6_kA";
+      const md = window.markdownit();
+      // Access your API key (see "Set up your API key" above)
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      let skillssearch = document.getElementById("userSkills");
+      // console.log(userinput.value)
+      let text;
+      async function run() {
+        // For text-only input, use the gemini-pro model
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+        const prompt =
+          skillssearch.value +
+          "skill based jobs with description and there links";
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        text = response.text();
+        document.getElementById(
+          "jobsearch"
+        ).innerHTML = `<h1 class="text-2xl font-bold text-center">Job Suggestions Based on your Skills</h1>`;
+        document.getElementById("jobsearch").innerHTML += md.render(text);
+
+        console.log(text);
+      }
+      document
+        .getElementById("jobsSuggestions")
+        .addEventListener("click", () => {
+          document.getElementById("jobsearch").style.display = "block";
+
+          // let hr = document.createElement("hr");
+          // hr.setAttribute("class", "border-1 border-black mt-2");
+          // document.getElementById("jobsearch").appendChild(hr);
+          // document.getElementsByClassName("center").style.display = "block";
+          // document.getElementById("waves").style.display = "flex";
+          console.log(skillssearch.value);
+          run();
+        });
+
+      async function run1() {
+        // For text-only input, use the gemini-pro model
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+        const prompt =
+          skillssearch.value + "based projects with there referal links";
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        text = response.text();
+        document.getElementById(
+          "jobsearch"
+        ).innerHTML = `<h1 class="text-2xl font-bold text-center">Projects Suggestions With there Referal Links</h1>`;
+        document.getElementById("jobsearch").innerHTML += md.render(text);
+
+        console.log(text);
+      }
+
+      document
+        .getElementById("projectsSuggestions")
+        .addEventListener("click", () => {
+          // window.location.href="./jobs.html";
+          // let pTag = document.createElement("p");
+          // pTag.innerHTML += `
+          // <p class="hidden text-2xl font-bold text-center" id="pProject">
+          //     Project suggestions
+          // </p>
+          // `;
+          // document.getElementById("jobsearch").appendChild(pTag);
+          document.getElementById("jobsearch").style.display = "block";
+          console.log(skillssearch.value);
+          run1();
+        });
+    </script>
+
+    <!-- project suggestions -->
+
+    <script src="resume.js"></script>
+  </body>
+</html>
