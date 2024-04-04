@@ -17,3 +17,7 @@ Interview Ready with AI is a project aimed at assisting users in creating profes
 - **CSS (Normal and Tailwind)**: CSS is used for styling the web application, and Tailwind CSS is employed for rapid development and maintaining a consistent design system.
 - **JavaScript**: Used for implementing interactive features and handling user interactions on the client-side.
 - **Local Storage**: Utilized for storing user data locally within the browser, allowing for a seamless experience across sessions.
+
+## Hosted Link 🚀
+
+[Click here to access the project](https://umairr07.github.io/Resume-Ai/)
